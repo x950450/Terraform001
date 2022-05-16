@@ -7,7 +7,7 @@ resource "azurerm_storage_account" "storageacc463365785748" {
   name                     = "storageacc463365785748"
   resource_group_name      = "${azurerm_resource_group.RG-Group-01.name}"
   location                 = "${azurerm_resource_group.RG-Group-01.location}"
-  account_tier             = var.accounttier
+  #account_tier             = var.accounttier
   account_replication_type = var.replicationtype
 
   tags = {
