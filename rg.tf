@@ -3,8 +3,8 @@ resource "azurerm_resource_group" "RG-Group-01" {
   location = var.location
 }
 
-resource "azurerm_storage_account" "storageacc46336578" {
-  name                     = "storageacc46336578"
+resource "azurerm_storage_account" "storageacc463365785748" {
+  name                     = "storageacc463365785748"
   resource_group_name      = "${azurerm_resource_group.RG-Group-01.name}"
   location                 = "${azurerm_resource_group.RG-Group-01.location}"
   account_tier             = var.accounttier
