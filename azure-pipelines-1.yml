@@ -13,3 +13,21 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- script: ls -al && pwd
+  displayName: 'List files and current working directory'
+  
+- script: echo "The BUILD ID is $(Build.BuildId) with Build number $(Build.BuildNumber)"
+  displayName: 'List files and current working directory'
+
+- script: sudo apt update -y >> /dev/null 2>&1 && sudo apt install openjdk-8-jdk >> /dev/null 2>&1 && ls -al
+  displayName: 'install patches and JDK'
+  
+- script: sudo apt update -y >> /dev/null 2>&1 && curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && sudo apt-get update && sudo apt-get install terraform && ls -al
+  displayName: 'install patches and JDK'
+  
+
+- script: sudo terraform init
+  displayName: 'terraform initialization'
+
+- script: sudo terraform apply --auto-approve --var-file prod.tfvars
+  displayName: 'terraform apply'
